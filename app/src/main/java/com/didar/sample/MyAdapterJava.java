@@ -2,19 +2,17 @@ package com.didar.sample;
 
 import android.support.annotation.NonNull;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.didar.mylibrary.Callback;
+import com.didar.extendedrecyclerview.Callback;
 import com.didar.extendedrecyclerview.ExtendedRecyclerViewAdapter;
-
 
 import java.util.List;
 
-public class MyAdapter extends ExtendedRecyclerViewAdapter {
+public class MyAdapterJava extends ExtendedRecyclerViewAdapter {
     List<Integer> list;
 
-    public MyAdapter(int layout, List<Integer> list, Callback callback) {
+    public MyAdapterJava(int layout, List<Integer> list, Callback callback) {
         super(layout, list, callback);
         this.list = list;
     }

@@ -1,7 +1,6 @@
 package com.didar.sample;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -10,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
-import com.didar.mylibrary.Callback;
+import com.didar.extendedrecyclerview.Callback;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -36,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+
         MyAdapter adapter = new MyAdapter(R.layout.row_list, list,
                 new Callback() {
                     @Override

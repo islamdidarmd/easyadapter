@@ -1,4 +1,4 @@
-package com.didar.mylibrary
+package com.didar.extendedrecyclerview
 
 import android.view.View
 
