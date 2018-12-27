@@ -1,7 +1,7 @@
 # EasyAdapter
 An adapter to reduce time for writing boilerplate code and speed up build time for RecyclerView.
 
-[![](https://jitpack.io/v/droidbond/LoadingButton.svg)](https://jitpack.io/v/droidbond/LoadingButton)
+[![](https://jitpack.io/v/droidbond/easyadapter.svg)](https://jitpack.io/v/droidbond/easyadapter)
 ## Installation (with Gradle)
 Step 1. Add the JitPack repository to your build file
 
