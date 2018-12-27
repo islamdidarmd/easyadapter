@@ -14,10 +14,11 @@ Add it in your root build.gradle at the end of repositories:
 	}
 ```
 Step 2. Add the dependency
+```groovy
 dependencies {
 		implementation 'com.github.droidbond:easyadapter:0.1.0'
 	}
-
+```
 ### How to use
 ```java
 recyclerView.setAdapter(new EasyAdapter.Builder<Integer>()
