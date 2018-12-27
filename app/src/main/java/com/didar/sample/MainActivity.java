@@ -1,17 +1,17 @@
 package com.didar.sample;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.didar.extendedrecyclerview.Callback;
-
-import org.jetbrains.annotations.NotNull;
+import com.didar.extendedrecyclerview.EasyAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,36 +27,24 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerview);
 
-        List<Integer> list = new ArrayList<>();
+        final List<Integer> list = new ArrayList<>();
 
         for (int i = 0; i < 50; i++) {
             list.add(i);
         }
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        MyAdapter adapter = new MyAdapter(R.layout.row_list, list,
-                new Callback() {
+        recyclerView.setAdapter(new EasyAdapter.Builder<Integer>()
+                .setLayout(R.layout.row_list)
+                .setItemCount(list.size())
+                .setData(list).setCallback(new Callback() {
                     @Override
-                    public void onClick(int position, @NotNull View view, @NotNull Object item) {
-                        Integer i = (Integer) item;
-                        Log.d(TAG, "onClick: clicked " + i);
+                    public void onBindViewHolder(@NonNull EasyAdapter.Companion.ViewHolder viewHolder, @NonNull View itemView, int position) {
+                        //TODO Bind your view Holder here.
+                        TextView textView = itemView.findViewById(R.id.textView);
+                        textView.setText(list.get(position).toString());
                     }
-
-                    @Override
-                    public void onLongClick(int position, @NotNull View view, @NotNull Object item) {
-                        Integer i = (Integer) item;
-                        Log.d(TAG, "onLongClick: onLongClick " + i);
-                    }
-
-                    @Override
-                    public void onDataSetChanged(int newDataSetSize, @NotNull List<?> newDataSet) {
-                        //when you call Adapter.updateDataSet you will get new dataset with size here
-                    }
-                });
-
-        recyclerView.setAdapter(adapter);
-
+                }).build());
     }
 }

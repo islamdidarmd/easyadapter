@@ -1,1 +1,1 @@
-include ':app', ':extendedrecyclerview'
+include ':app', ':easyadapter'
