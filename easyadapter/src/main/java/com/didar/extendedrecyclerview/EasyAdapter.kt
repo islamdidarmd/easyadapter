@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class EasyAdapter<T> private constructor(val layout: Int, val count: Int, val callback: Callback, var objects: List<T>)
+class EasyAdapter<T> private constructor(private val layout: Int, private val callback: Callback<T>, private var objects: List<T>)
     : RecyclerView.Adapter<EasyAdapter.Companion.ViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, pos: Int): ViewHolder {
@@ -13,11 +13,11 @@ class EasyAdapter<T> private constructor(val layout: Int, val count: Int, val ca
     }
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-        callback.onBindViewHolder(p0, p0.itemView, p1)
+        callback.onBindViewHolder(p0, p0.itemView, p1, objects[p1])
     }
 
     override fun getItemCount(): Int {
-        return count
+        return objects.size
     }
 
     fun updateDataSet(newDataSet: List<T>) {
@@ -27,17 +27,11 @@ class EasyAdapter<T> private constructor(val layout: Int, val count: Int, val ca
 
     class Builder<T> {
         private var layout = 0
-        private var count = 0
         private lateinit var items: List<T>
-        private lateinit var callback: Callback
+        private lateinit var callback: Callback<T>
 
         fun setLayout(layout: Int): Builder<T> {
             this.layout = layout
-            return this
-        }
-
-        fun setItemCount(count: Int): Builder<T> {
-            this.count = count
             return this
         }
 
@@ -46,13 +40,13 @@ class EasyAdapter<T> private constructor(val layout: Int, val count: Int, val ca
             return this
         }
 
-        fun setCallback(callback: Callback): Builder<T> {
+        fun setCallback(callback: Callback<T>): Builder<T> {
             this.callback = callback
             return this
         }
 
         fun build(): EasyAdapter<T> {
-            return EasyAdapter(layout, count, callback, items)
+            return EasyAdapter(layout, callback, items)
         }
     }
 
