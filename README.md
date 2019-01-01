@@ -1,4 +1,4 @@
-# ExtendedRecyclerView
+# EasyAdapter
 An adapter to reduce time for writing boilerplate code and speed up build time for RecyclerView.
 
 ### Demo
