@@ -1,7 +1,7 @@
 # EasyAdapter
 An adapter to reduce time for writing boilerplate code and speed up build time for RecyclerView.
 
-[![](https://jitpack.io/v/droidbond/LoadingButton.svg)](https://jitpack.io/v/droidbond/LoadingButton)
+[![](https://jitpack.io/v/droidbond/easyadapter.svg)](https://jitpack.io/v/droidbond/easyadapter)
 
 ### Demo
 <img src="https://github.com/droidbond/easyadapter/blob/master/device-2019-01-01-141001.png" width="250"> <img src="https://github.com/droidbond/easyadapter/blob/master/device-2019-01-01-141017.png" width="250">
