@@ -22,7 +22,7 @@ Step 2. Add the dependency
 
 ```groovy
 dependencies {
-		implementation 'com.github.droidbond:easyadapter:0.1.1'
+		implementation 'com.github.droidbond:easyadapter:0.1.2'
 	}
 ```
 	
@@ -30,6 +30,7 @@ dependencies {
 
 For general RecyclerView:
 
+`Java`
 ```java
  recyclerView.setAdapter(new EasyAdapter.Builder<Integer>()
                 .setLayout(R.layout.row_list)
@@ -44,9 +45,23 @@ For general RecyclerView:
                 .build());
 
 ```
+`Kotlin`
+```kotlin
+recyclerView.adapter = EasyAdapter.Builder<Int>()
+                .setLayout(R.layout.row_list)
+                .setData(list)
+                .setCallback(object : Callback<Int> {
+                    override fun onBindViewHolder(viewHolder: EasyAdapter.Companion.ViewHolder, itemView: View, position: Int, item: Int) {
+                        val tv: TextView = viewHolder.itemView.textView
+                        tv.text = item.toString()
+                    }
+                })
+                .build()
+```
 
 For RecyclerView with multiple section:
 
+`Java`
 ```java
 recyclerView.setAdapter(new EasySectionedAdapter.Builder<Integer>()
                 .setHeaderLayout(R.layout.row_header)
@@ -70,6 +85,31 @@ recyclerView.setAdapter(new EasySectionedAdapter.Builder<Integer>()
                     }
                 })
                 .build());
+```
+
+`Kotlin`
+```kotlin
+recyclerView.adapter = EasySectionedAdapter.Builder<Int>()
+                .setHeaderLayout(R.layout.row_header)
+                .setChildLayout(R.layout.row_list)
+                .setDataSet(Arrays.asList(Arrays.asList(1, 2, 3, 4), Arrays.asList(1, 2), Arrays.asList(1, 2, 3)))
+                .setCallback(object : SectionedCallback<Int> {
+                    override fun onBindHeader(viewHolder: EasyAdapter.Companion.ViewHolder, section: Int) {
+                        viewHolder.itemView.setBackgroundColor(Color.BLACK)
+                        val tv = viewHolder.itemView.textView
+                        tv.setTextColor(Color.WHITE)
+                        tv.text = "Header for section $section"
+                    }
+
+                    override fun onBindChild(viewHolder: EasyAdapter.Companion.ViewHolder, section: Int, positionInSection: Int, position: Int, item: Int) {
+                        val tv = viewHolder.itemView.textView
+                        tv.text = item.toString()
+                        tv.setTextColor(Color.BLACK)
+                        viewHolder.itemView.setBackgroundColor(Color.WHITE)
+                    }
+                })
+                .build()
+    }
 ```
 
 To update dataset use ```Adapter.updateDataSet()``` with your new dataset.
