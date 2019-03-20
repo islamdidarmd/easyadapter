@@ -1,10 +1,10 @@
 # EasyAdapter
 An adapter to reduce time for writing boilerplate code and speed up build time for RecyclerView.
 
-[![](https://jitpack.io/v/droidbond/easyadapter.svg)](https://jitpack.io/v/droidbond/easyadapter)
+[![](https://jitpack.io/v/islamdidarmd/easyadapter.svg)](https://jitpack.io/v/islamdidarmd/easyadapter)
 
 ### Demo
-<img src="https://github.com/droidbond/easyadapter/blob/master/device-2019-01-01-141001.png" width="250"> <img src="https://github.com/droidbond/easyadapter/blob/master/device-2019-01-01-141017.png" width="250">
+<img src="https://github.com/islamdidarmd/easyadapter/blob/master/device-2019-01-01-141001.png" width="250"> <img src="https://github.com/islamdidarmd/easyadapter/blob/master/device-2019-01-01-141017.png" width="250">
 
 ## Installation (with Gradle)
 Step 1. Add the JitPack repository to your build file
@@ -22,7 +22,7 @@ Step 2. Add the dependency
 
 ```groovy
 dependencies {
-		implementation 'com.github.droidbond:easyadapter:0.1.2'
+		implementation 'com.github.islamdidarmd:easyadapter:0.1.2'
 	}
 ```
 	
